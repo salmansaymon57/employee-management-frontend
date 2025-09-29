@@ -29,7 +29,7 @@ export class EmployeeData implements OnInit {
   }
 
   getallEmployee() {
-    this.http.get(`https://employeeapi.runasp.net/api/Employeemaster`).subscribe({
+    this.http.get(`https://salmansaymon-001-site1.qtempurl.com/api/Employeemaster`).subscribe({
       next: (res: any) => {
         this.employeeList = res;
       },
@@ -46,7 +46,7 @@ export class EmployeeData implements OnInit {
     } else {
       // Create a new object without employeeId for POST
       const { employeeId, ...employeeData } = this.employeeobj;
-      this.http.post(`https://employeeapi.runasp.net/api/Employeemaster`, employeeData)
+      this.http.post(`https://salmansaymon-001-site1.qtempurl.com/api/Employeemaster`, employeeData)
         .subscribe({
           next: (res: any) => {
             this.getallEmployee();
@@ -71,7 +71,7 @@ export class EmployeeData implements OnInit {
   }
 
   updateEmployee() {
-    this.http.put(`https://employeeapi.runasp.net/api/Employeemaster/${this.employeeobj.employeeId}`, this.employeeobj)
+    this.http.put(`https://salmansaymon-001-site1.qtempurl.com/api/Employeemaster/${this.employeeobj.employeeId}`, this.employeeobj)
       .subscribe({
         next: (res: any) => {
           this.getallEmployee();
@@ -88,7 +88,7 @@ export class EmployeeData implements OnInit {
 
   deleteEmployee(employeeId: number) {
     if (confirm('Are you sure you want to delete this employee?')) {
-      this.http.delete(`https://employeeapi.runasp.net/api/Employeemaster/${employeeId}`)
+      this.http.delete(`https://salmansaymon-001-site1.qtempurl.com/api/Employeemaster/${employeeId}`)
         .subscribe({
           next: () => {
             this.getallEmployee();
